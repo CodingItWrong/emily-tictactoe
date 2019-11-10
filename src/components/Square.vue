@@ -1,13 +1,18 @@
 <template>
-  <button class="square" @click="cycleShape">{{ this.shape }}</button>
+  <button class="square" @click="handleClick">{{ this.shape }}</button>
 </template>
 
 <script>
 export default {
   name: 'Square',
-  props: ['shape'],
+  props: ['shape', 'row', 'column'],
   methods: {
-    cycleShape() {},
+    handleClick() {
+      this.$emit('toggle-shape', {
+        row: this.row,
+        column: this.column,
+      })
+    },
   },
 }
 </script>

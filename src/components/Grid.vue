@@ -1,12 +1,20 @@
 <template>
   <div>
-    <div v-for="(row, index) in rows" :key="index">
-      <Square v-for="(space, index) in row" :key="index" :shape="space" />
+    <div v-for="(row, rowIndex) in rows" :key="rowIndex">
+      <Square
+        v-for="(space, columnIndex) in row"
+        :key="columnIndex"
+        :shape="shapes[space]"
+        :row="rowIndex"
+        :column="columnIndex"
+        @toggle-shape="handleToggle"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import Square from './Square'
 
 export default {
@@ -15,11 +23,25 @@ export default {
   data() {
     return {
       rows: [
-        ['X', 'O', 'X'],
-        ['_', '_', '_'],
-        ['_', '_', '_'],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
       ],
+      shapes: ['_', 'X', 'O'],
     }
+  },
+  methods: {
+    handleToggle({ row, column }) {
+      const currentValue = this.rows[row][column]
+      const newValue = (currentValue + 1) % 3
+
+      Vue.set(this.rows[row], column, newValue)
+    },
+  },
+  computed: {
+    shape(shapeIndex) {
+      return this.shapes[shapeIndex]
+    },
   },
 }
 </script>
