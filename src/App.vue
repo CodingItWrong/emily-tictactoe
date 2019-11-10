@@ -3,32 +3,16 @@
     <h1>The Best Tic-Tac-Toe Ever</h1>
     <h2>Made By Emily</h2>
 
-    <div>
-      <Square />
-      <Square />
-      <Square />
-    </div>
-
-    <div>
-      <Square />
-      <Square />
-      <Square />
-    </div>
-
-    <div>
-      <Square />
-      <Square />
-      <Square />
-    </div>
+    <Grid />
   </div>
 </template>
 
 <script>
-import Square from './components/Square'
+import Grid from './components/Grid'
 
 export default {
   name: 'app',
-  components: { Square },
+  components: { Grid },
 }
 </script>
 
