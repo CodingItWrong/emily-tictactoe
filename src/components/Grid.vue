@@ -34,10 +34,11 @@ export default {
   },
   methods: {
     handleToggle({ row, column }) {
-      const currentValue = this.rows[row][column]
-      const newValue = (currentValue + 1) % 3
+      const newValue = this.turn
 
       Vue.set(this.rows[row], column, newValue)
+
+      this.turn = this.turn === 1 ? 2 : 1
     },
   },
   computed: {
