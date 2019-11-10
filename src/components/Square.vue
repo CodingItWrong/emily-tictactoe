@@ -27,11 +27,8 @@ export default {
 
 <style scoped>
 .square {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
+  display: inline;
   border: solid 1px black;
-  font-size: 82px;
-  text-align: center;
+  font-size: 72px;
 }
 </style>
