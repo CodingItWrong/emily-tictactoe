@@ -3,24 +3,11 @@
 </template>
 
 <script>
-const shapes = ['_', 'X', 'O']
-
 export default {
   name: 'Square',
-  data() {
-    return {
-      shapeIndex: 0,
-    }
-  },
-  computed: {
-    shape() {
-      return shapes[this.shapeIndex]
-    },
-  },
+  props: ['shape'],
   methods: {
-    cycleShape() {
-      this.shapeIndex = (this.shapeIndex + 1) % 3
-    },
+    cycleShape() {},
   },
 }
 </script>
